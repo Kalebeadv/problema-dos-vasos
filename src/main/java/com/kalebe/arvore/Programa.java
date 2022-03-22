@@ -13,6 +13,16 @@ public class Programa {
     
     public static void main(String[] args) {
         
+        Vaso vaso_menor = new Vaso(3);
+        Vaso vaso_maior = new Vaso(4);
+        
+        Regra regra = new Regra(vaso_menor, vaso_maior);
+        
+        Testador teste = new Testador(vaso_menor, vaso_maior);
+        
+        teste.iniciarCacheMemoriaF();
+        
+        System.out.println(teste.getCache());
     }
     
 }
