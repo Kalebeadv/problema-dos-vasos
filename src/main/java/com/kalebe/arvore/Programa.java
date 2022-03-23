@@ -20,9 +20,7 @@ public class Programa {
         
         Testador teste = new Testador(vaso_menor, vaso_maior);
         
-        teste.iniciarCacheMemoriaF();
         
-        System.out.println(teste.getCache());
     }
     
 }

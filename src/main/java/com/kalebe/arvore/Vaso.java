@@ -11,8 +11,8 @@ package com.kalebe.arvore;
  */
 public class Vaso {
     
-    private Integer capacidade;
-    private Integer volume;
+    private Integer capacidade ;
+    private Integer volume = 0;
     
     public Vaso(Integer capacidade) {
         this.capacidade = capacidade;
