@@ -13,6 +13,13 @@ public class Vaso {
     
     private Integer capacidade ;
     private Integer volume = 0;
+
+    public Vaso(Integer capacidade, Integer volume) 
+    {
+        this.capacidade = capacidade;
+        this.volume = volume;
+    }
+    
     
     public Vaso(Integer capacidade) {
         this.capacidade = capacidade;
