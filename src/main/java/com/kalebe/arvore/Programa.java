@@ -13,13 +13,15 @@ public class Programa {
     
     public static void main(String[] args) {
         
-        Vaso vaso_menor = new Vaso(3);
-        Vaso vaso_maior = new Vaso(4);
+        Vaso vaso_menor = new Vaso(3,0);
+        Vaso vaso_maior = new Vaso(4,0);
         
-        Regra regra = new Regra(vaso_menor, vaso_maior);
         
-        Testador teste = new Testador(vaso_menor, vaso_maior);
+        Testador testador =  new Testador();
         
+        testador.guarda(vaso_menor, vaso_maior);
+        
+        System.out.println(testador.getVasos().get(0));
         
     }
     
