@@ -14,58 +14,59 @@ import java.util.List;
  */
 public class Testador {
 
-    private Vaso vaso_menor;
-    private Vaso vaso_maior;
     private List<String> vasos = new ArrayList<>();
-
-    public Testador(Vaso vaso_menor, Vaso vaso_maior) 
+    private Regra regra;
+    
+    
+    public void guarda(Vaso vaso_menor, Vaso vaso_maior) 
     {
-        this.vaso_menor = vaso_menor;
-        this.vaso_maior = vaso_maior;
+        this.vasos.add("(" + vaso_menor.getVolume().toString()+ "," 
+                    + vaso_maior.getVolume().toString() + ")");
     }
 
-    public void iniciarVasos(Integer vMenorCapacidade, Integer vMaiorCapacidade) 
+    private Boolean valida_vaso(Vaso vaso_menor, Vaso vaso_maior) 
     {
-        vaso_menor.setCapacidade(vMenorCapacidade);
-        vaso_maior.setCapacidade(vMaiorCapacidade);
-    }
-
-    private void guarda(Vaso vaso1, Vaso vaso2) 
-    {
-        vasos.add("(" + vaso1.getVolume().toString()+ "," 
-                    + vaso2.getVolume().toString() + ")");
-    }
-
-    private Boolean valida_vaso(Vaso vaso1, Vaso vaso2) 
-    {
-        for (int i = 0; i < vasos.size(); i++) {
-            if (("("+ vaso1.getVolume().toString() + "," + 
-                      vaso2.getVolume().toString() + ")") == vasos.get(i)) {
+        for (int i = 0; i < this.vasos.size(); i++) {
+            if (("("+ vaso_menor.getVolume().toString() + "," + 
+                      vaso_maior.getVolume().toString() + ")") == this.vasos.get(i)) {
                 
                 return true;
             }
         }
         return false;
     }
-
-    public Vaso getVaso_menor() 
+    
+    public void construir_(Vaso vaso_menor, Vaso vaso_maior)
     {
-        return vaso_menor;
+        if(vasos.get(0) == null) {vasos.add("(0,0)");}
+        
+        if(vaso_menor.getVolume() == 0 && vaso_maior.getVolume() == 0)
+        {
+            if(valida_vaso(vaso_menor, vaso_maior) == false )
+            {
+                guarda(vaso_menor, vaso_maior);
+            }
+        }
+        if(vaso_menor.getVolume() == 0)
+        {
+           regra.esvaziaVaso(vaso_menor);
+            System.out.println(vaso_menor.getVolume());
+        }
+        
+        
     }
 
-    public void setVaso_menor(Vaso vaso_menor) 
-    {
-        this.vaso_menor = vaso_menor;
+    public Regra getRegra() {
+        return regra;
     }
 
-    public Vaso getVaso_maior() 
-    {
-        return vaso_maior;
+    public void setRegra(Regra regra) {
+        this.regra = regra;
     }
 
-    public void setVaso_maior(Vaso vaso_maior) 
-    {
-        this.vaso_maior = vaso_maior;
+    public List<String> getVasos() {
+        return vasos;
     }
+     
     
 }
