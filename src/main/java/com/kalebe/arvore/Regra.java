@@ -12,45 +12,24 @@ package com.kalebe.arvore;
 public class Regra {
     
     
-   private Vaso vaso_menor;
-   private Vaso vaso_maior;
-
-    public Regra(Vaso vaso_menor, Vaso vaso_maior) {
-        this.vaso_menor = vaso_menor;
-        this.vaso_maior = vaso_maior;
-    }
-   
-   
-   
-   public void encheMenorVaso()
+   public void encheVaso(Vaso vaso)
    {
-       this.vaso_menor.setVolume(this.vaso_menor.getCapacidade());
+       vaso.setVolume(vaso.getCapacidade());
    }
    
-   public void encheMaiorVaso()
+   public void esvaziaVaso(Vaso vaso)
    {
-       this.vaso_maior.setVolume(this.vaso_maior.getCapacidade());
+       vaso.setVolume(0);
    }
    
-   public void menorVasoEsvaziar()
+   public void despejarNoMaior(Vaso vaso_menor, Vaso vaso_maior)
    {
-       this.vaso_menor.setVolume(0);
+       Integer sobraDeAgua = vaso_maior.despejarAguaEmOutroVaso(vaso_menor.getVolume());
+       vaso_menor.setVolume(sobraDeAgua);
    }
    
-   public void maiorVasoEsvaziar()
+   public void despejarNoMenor(Vaso vaso_menor, Vaso vaso_maior)
    {
-       this.vaso_maior.setVolume(0);
-   }
-   
-   public void despejarMenorNoVasoMaior()
-   {
-       Integer sobraDeAgua = this.vaso_maior.despejarAguaEmOutroVaso(this.vaso_menor.getVolume());
-       this.vaso_menor.setVolume(sobraDeAgua);
-   }
-   
-   public void despejarMaiorNoVasoMenor()
-   {
-       Integer sobraDeAgua = this.vaso_menor.despejarAguaEmOutroVaso(vaso_maior.getVolume());
-       this.vaso_maior.setVolume(sobraDeAgua);
-   }
-}
+       Integer sobraDeAgua = vaso_menor.despejarAguaEmOutroVaso(vaso_maior.getVolume());
+       vaso_maior.setVolume(sobraDeAgua);
+   }}
