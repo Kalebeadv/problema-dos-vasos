@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class Testador {
 
+ 
     private List<String> vasos = new ArrayList<>();
     private Vaso vaso_teste = new Vaso(3,0);
     
@@ -80,6 +81,7 @@ public class Testador {
    
     public void contruir_(Vaso vaso_menor, Vaso vaso_maior)
     {
+        
         if(vaso_menor.getVolume() == 0 && vaso_maior.getVolume() == 0)
         {
             vaso_teste.setVolume(0);
@@ -106,7 +108,34 @@ public class Testador {
                 guarda(vaso_menor, vaso_maior);
             
         }
+        if(vaso_menor.getVolume() < vaso_maior.getVolume() && 
+           vaso_menor.getVolume() == vaso_menor.getCapacidade())
+        {
+            esvaziaVaso(vaso_menor);
+            despejarNoMenor(vaso_menor, vaso_maior);
+            guarda(vaso_menor, vaso_maior);
+        }
+        if(vaso_menor.getVolume() < vaso_menor.getCapacidade() &&
+           vaso_menor.getVolume() > vaso_maior.getVolume())
+        {
+            encheVaso(vaso_maior);
+            guarda(vaso_menor, vaso_maior);
+        }
+        if(vaso_maior.getVolume() == vaso_maior.getCapacidade() &&
+           vaso_menor.getVolume() > 0 && vaso_menor.getVolume() < 2)
+        {
+            despejarNoMenor(vaso_menor, vaso_maior);
+            guarda(vaso_menor, vaso_maior);
+        }
         
+        if(vaso_menor.getVolume() > vaso_maior.getVolume() && 
+           vaso_maior.getVolume() > 1 && vaso_maior.getVolume() < 3)
+        {
+            esvaziaVaso(vaso_menor);
+            guarda(vaso_menor, vaso_maior);
+        }
+        
+       
     }
    
     public List<String> getVasos() {
