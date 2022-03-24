@@ -28,7 +28,7 @@ public class Programa {
         
         //System.out.println(testador.getVasos().get(0) + testador.getVasos().get(1));
         
-        System.out.println(testador.valida_vaso(vaso_menor, vaso_maior));
+        
         
         testador.contruir_(vaso_menor, vaso_maior);
         for(int i = 0; i < testador.getVasos().size(); i++)
