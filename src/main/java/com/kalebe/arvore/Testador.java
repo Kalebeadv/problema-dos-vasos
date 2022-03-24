@@ -15,7 +15,7 @@ import java.util.List;
 public class Testador {
 
     private List<String> vasos = new ArrayList<>();
-
+    private Vaso vaso_teste = new Vaso(3,0);
     
     public void guarda(Vaso vaso_menor, Vaso vaso_maior) 
     {
@@ -82,10 +82,11 @@ public class Testador {
     {
         if(vaso_menor.getVolume() == 0 && vaso_maior.getVolume() == 0)
         {
+            vaso_teste.setVolume(0);
             encheVaso(vaso_menor);
             guarda(vaso_menor, vaso_maior);
             encheVaso(vaso_maior);
-            guarda(vaso_menor, vaso_maior);
+            guarda(vaso_teste, vaso_maior);
         }
         if(vaso_menor.getVolume() > vaso_maior.getVolume())
         {
