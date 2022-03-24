@@ -40,21 +40,4 @@ public class Vaso {
     public Integer getVolume() {
         return volume;
     }
-    
-    public Integer despejarAguaEmOutroVaso(Integer agua)
-    {
-        Integer totalDeAgua = 0;
-        if (this.volume + agua <= this.capacidade)
-        {
-            this.volume = this.volume + agua;
-        }
-        else if (this.volume + agua > this.capacidade)
-        {
-            Integer sobraDeAgua = this.capacidade - this.volume;
-            sobraDeAgua = agua - sobraDeAgua;
-            this.volume = sobraDeAgua;
-        }
-        
-        return totalDeAgua;
-    }
 }
