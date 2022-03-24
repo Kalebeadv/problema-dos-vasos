@@ -21,8 +21,20 @@ public class Programa {
         
         testador.guarda(vaso_menor, vaso_maior);
         
-        System.out.println(testador.getVasos().get(0));
+        //vaso_maior.setVolume(2);
+        //vaso_menor.setVolume(1);
         
+        //testador.guarda(vaso_menor, vaso_maior);
+        
+        //System.out.println(testador.getVasos().get(0) + testador.getVasos().get(1));
+        
+        System.out.println(testador.valida_vaso(vaso_menor, vaso_maior));
+        
+        testador.contruir_(vaso_menor, vaso_maior);
+        for(int i = 0; i < testador.getVasos().size(); i++)
+        {
+            System.out.println(testador.getVasos().get(i));  
+        }
     }
     
 }
